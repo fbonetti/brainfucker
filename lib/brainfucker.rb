@@ -2,9 +2,10 @@ require 'stringio'
 
 class Brainfucker
 
-  def initialize(code, input = "")
+  def initialize(code, input = "", output = STDOUT)
     @code = StringIO.new(code)
     @input = StringIO.new(input)
+    @output = output
     reset_state
   end
 
@@ -15,7 +16,7 @@ class Brainfucker
       parse_command(@code.getc)
     end
 
-    puts
+    @output.puts
   end
 
   def step(n = 1)
@@ -68,27 +69,23 @@ class Brainfucker
   end
 
   def increment_value
-    @memory[@pointer_address] ||= 0
     @memory[@pointer_address] = (@memory[@pointer_address] + 1) % 256
   end
 
   def decrement_value
-    @memory[@pointer_address] ||= 0
     @memory[@pointer_address] = (@memory[@pointer_address] - 1) % 256
   end
 
   def increment_pointer
     @pointer_address += 1
-    @memory[@pointer_address] ||= 0
   end
 
   def decrement_pointer
     @pointer_address -= 1
-    @memory[@pointer_address] ||= 0
   end
 
   def output_char
-    print @memory[@pointer_address].chr
+    @output.print @memory[@pointer_address].chr
   end
 
   def input_char
