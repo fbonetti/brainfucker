@@ -1,4 +1,4 @@
-## Installation
+### Installation
 
 ```ruby
 gem install brainfucker
