@@ -46,8 +46,6 @@ class Brainfucker
   private
 
   def parse_command(command)
-    @memory[@pointer_address] ||= 0
-
     case command
     when "+"
       increment_value
@@ -69,19 +67,23 @@ class Brainfucker
   end
 
   def increment_value
+    @memory[@pointer_address] ||= 0
     @memory[@pointer_address] = (@memory[@pointer_address] + 1) % 256
   end
 
   def decrement_value
+    @memory[@pointer_address] ||= 0
     @memory[@pointer_address] = (@memory[@pointer_address] - 1) % 256
   end
 
   def increment_pointer
     @pointer_address += 1
+    @memory[@pointer_address] ||= 0
   end
 
   def decrement_pointer
     @pointer_address -= 1
+    @memory[@pointer_address] ||= 0
   end
 
   def output_char
