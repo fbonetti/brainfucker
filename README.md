@@ -1,20 +1,15 @@
-### Installation
+## Summary
 
-```ruby
-gem install brainfucker
-```
+In keeping with the Brainfuck style, I made this interpreter extremely terse and difficult to understand. It's composed of 20 lines of Ruby code and was made as sort of 'code golf' challenge to myself.
 
 ### Usage
 
 ```ruby
-interpreter = Brainfucker.new("
+Brainfucker.load("
   ++++++++++[>+++++++>++++++++++>+++>++++<
   <<<-]>++.>+.+++++++..+++.>>++++.<++.<+++
   +++++.--------.+++.------.--------.>+.
 ")
 
-interpreter.run
-
-Hello World!
-=> nil
+Hello World!=> nil
 ```
