@@ -11,5 +11,5 @@ Brainfucker.load("
   +++++.--------.+++.------.--------.>+.
 ")
 
-Hello World!=> nil
+Hello, world!=> nil
 ```
